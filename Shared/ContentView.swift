@@ -11,15 +11,16 @@ struct ContentView: View {
     let colors = Gradient(colors: [.red, .yellow, .blue, .purple])
     
     var body: some View {
-        Circle()
-            .fill(linearGradient())
-            .frame(width: 300, height: 300)
+        CustomShape()
+            .fill(radialGraidient())
+            .background(linearGradient())
+            .frame(width: 360, height: 350)
     }
     
     
     // MARK: Gradient Helpers. Just for Demo
     private func radialGraidient() -> RadialGradient {
-        return RadialGradient(gradient: colors, center: .leading, startRadius: 0, endRadius: 300)
+        return RadialGradient(gradient: colors, center: .center, startRadius: 0, endRadius: 300)
     }
     
     private func angularGradient() -> AngularGradient {
@@ -27,7 +28,7 @@ struct ContentView: View {
     }
     
     private func linearGradient() -> LinearGradient {
-        return LinearGradient(gradient: colors, startPoint: .topLeading, endPoint: .bottomTrailing)
+        return LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }
 
